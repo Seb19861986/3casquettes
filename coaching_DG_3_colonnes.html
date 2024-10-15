@@ -117,6 +117,8 @@
         <button class="styled-button" onclick="checkAnswers()">Vérifier</button>
     </div>
 
+    <div id="words" class="word-list"></div> <!-- Pot commun pour les mots -->
+
     <div class="message" id="result-message"></div>
 
     <script>
@@ -127,9 +129,10 @@
             "feedback": ["Rassurer", "Ecouter", "Leadership", "Montrer de l'empathie", "Motiver", "Guider", "Inspirer", "Encourager"]
         };
 
-        // Fonction pour initialiser les mots dans le pot commun
+        // Fonction pour initialiser les mots dans le pot commun au chargement de la page
         function createWords() {
             const wordContainer = document.getElementById("words");
+            wordContainer.innerHTML = "";  // Vider le conteneur avant d'ajouter les mots
             let allWords = [...words.organiser, ...words.coacher, ...words.feedback];
             allWords.forEach((word, index) => {
                 let wordElement = document.createElement("div");
@@ -190,8 +193,9 @@
             return correct;
         }
 
-        // Initialisation
-        createWords();
+        // Initialisation - Les mots apparaissent dans le pot commun au chargement
+        window.onload = createWords;
+
     </script>
 
 </body>
