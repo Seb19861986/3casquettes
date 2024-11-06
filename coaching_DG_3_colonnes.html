@@ -123,16 +123,16 @@
     <script>
         // Mots associés aux colonnes
         const words = {
-            "organiser": ["Evaluer", "Former", "Recruter", "Planifier", "Licencier", "Sanctionner", "Déléguer", "Fixer des objectifs"],
-            "?": ["Faire réfléchir", "Coacher"],
-            "feedback": ["Rassurer", "Ecouter", "Montrer de l'empathie", "Motiver", "Guider", "Inspirer", "Encourager"]
+            "Organiser": ["Evaluer", "Former", "Recruter", "Planifier", "Licencier", "Sanctionner", "Déléguer", "Fixer des objectifs"],
+            "Coacher": ["Faire réfléchir", "Coacher"],
+            "Feedback": ["Rassurer", "Ecouter", "Montrer de l'empathie", "Motiver", "Guider", "Inspirer", "Encourager"]
         };
 
         // Fonction pour initialiser les mots dans le pot commun au chargement de la page
         function createWords() {
             const wordContainer = document.getElementById("words");
             wordContainer.innerHTML = "";  // Vider le conteneur avant d'ajouter les mots
-            let allWords = [...words.organiser, ...words.coacher, ...words.feedback];
+            let allWords = [...words.Organiser, ...words.Coacher, ...words.Feedback];
             allWords.forEach((word, index) => {
                 let wordElement = document.createElement("div");
                 wordElement.className = "word";
@@ -167,9 +167,9 @@
             const feedbackColumn = document.getElementById("feedback").querySelectorAll(".word");
 
             let correctCount = 0;
-            correctCount += checkColumn(organiserColumn, words.organiser);
-            correctCount += checkColumn(coacherColumn, words.coacher);
-            correctCount += checkColumn(feedbackColumn, words.feedback);
+            correctCount += checkColumn(organiserColumn, words.Organiser);
+            correctCount += checkColumn(coacherColumn, words.Coacher);
+            correctCount += checkColumn(feedbackColumn, words.Feedback);
 
             if (correctCount === Object.values(words).flat().length) {
                 document.getElementById("result-message").textContent = "Super ! Bonnes réponses !";
